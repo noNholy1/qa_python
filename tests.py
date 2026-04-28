@@ -43,6 +43,12 @@ class TestBooksCollector:
         collector.set_book_genre('А', 'Мультфильмы')
         assert collector.get_books_genre() == {'А': 'Мультфильмы'}
 
+    def test_get_books_for_children_includes_child_friendly_genre(self, collector):
+        collector.add_new_book('Гарри Поттер')
+        collector.set_book_genre('Гарри Поттер', 'Фантастика')
+        children_books = collector.get_books_for_children()
+        assert 'Гарри Поттер' in children_books
+
     def test_get_books_for_children_ignores_books_without_genre(self, collector):
         collector.add_new_book('Без жанра')
         assert collector.get_books_for_children() == []

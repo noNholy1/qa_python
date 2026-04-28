@@ -24,7 +24,8 @@
 - **test_get_books_genre_returns_dict** – метод возвращает словарь со всеми книгами и жанрами.
 
 ### get_books_for_children
-- **test_get_books_for_children_ignores_books_without_genre** – книга без указанного жанра не попадает в список для детей.
+- **test_get_books_for_children_includes_child_friendly_genre** – позитивный тест: книга с допустимым для детей жанром (например, «Фантастика») включается в список.
+- **test_get_books_for_children_ignores_books_without_genre** – негативный тест: книга без установленного жанра не попадает в список для детей.
 
 ### add_book_in_favorites
 - **test_add_book_in_favorites_noexistent_book_not_added** – попытка добавить в избранное книгу, отсутствующую в `books_genre`, не меняет список избранного.
